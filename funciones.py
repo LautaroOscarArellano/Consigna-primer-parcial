@@ -23,7 +23,7 @@ def mostar_menu():
 
 
 def cargar_datos():
-    with open(r"C:\Users\arell\Desktop\Consigna primer parcial\insumos.csv",encoding="utf-8")as file: 
+    with open(r"insumos.csv",encoding="utf-8")as file: 
         archivo_lector=file.read()
         archivo_lector=archivo_lector.split("\n")
 
@@ -43,7 +43,7 @@ def cargar_datos():
             direccio["PRECIO"]=float(lista_1[elemento][3])
             direccio["CARACTERISTICAS"]=lista_1[elemento][4]
             lista_dicc.append(direccio)
-
+        print("Funcion cargada")
         return(lista_dicc)
     
 def cantidad_marca(lista:list,key_m:str)->list:
@@ -74,7 +74,7 @@ def esta_en_lista (lista:list , marca:str)->list:
     return esta
             
 
-def insumos_por_marca(lista:list , key_m:str):
+def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->list:
     agrupacion_marca=list()
     lista_insumos=list()
     valor=0
@@ -88,7 +88,7 @@ def insumos_por_marca(lista:list , key_m:str):
             diccionario_marcas_2=dict()
             if(marca == nombre_insumo[key_m]):
                 valor+=1
-                andor=":"+ nombre_insumo["NOMBRE"] +" precio "+nombre_insumo["PRECIO"]
+                andor= ":" , nombre_insumo[key_n] , " precio " , nombre_insumo[key_p]
             diccionario_marcas_2[marca]=andor
         lista_insumos.append(diccionario_marcas_2)
     return lista_insumos
@@ -96,12 +96,12 @@ def insumos_por_marca(lista:list , key_m:str):
 
 #Buscar insumo por característica:
 
-def busqueda_caracteristica(recorrer_caracteristica:list()):
+def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)->None:
     lista=list()
-    busqueda=input(" ------------------------  ")
+    busqueda=input(" Buscar caracteristica  ")
     for caracteristica in recorrer_caracteristica:
-            if busqueda in (caracteristica["CARACTERISTICAS"]):
-                concatenado= "Marca : " +caracteristica['MARCA'] + "├ Caracteristica : " + caracteristica['CARACTERISTICAS']
+            if busqueda in (caracteristica[key_c]):
+                concatenado= "Marca : " +caracteristica[key_m] + "├ Caracteristica : " + caracteristica[key_c]
                 lista.append(concatenado)
     if len(lista) == 0:
         print ("No existe")
@@ -109,18 +109,18 @@ def busqueda_caracteristica(recorrer_caracteristica:list()):
         for item in lista:
             print(item)
 
-def orden_insumos(lista:list):
+def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
     print("ID    CARACTERISTICA                     PRECIO     MARCA")
     tam=len(lista)
     for i in range(tam-1):
         for j in range(i+1,tam):
-            if(lista[i]["MARCA"]>lista[j]["MARCA"]):
+            if(lista[i][key_m]>lista[j][key_m]):
                 aux=lista[i]
                 lista[i]=lista[j]
                 lista[j]=aux
 
     for elemento in lista:
-        print(f"{elemento['ID']:2s}  {elemento['NOMBRE']:35s}  {elemento['PRECIO']:10s} {elemento['MARCA']:2s}")
+        print(f"{elemento[key_i]:2s}  {elemento[key_n]:35s}  {elemento[key_p]:10.0f} {elemento[key_m]:2s}")
 
 def realizar_compras(lista:list):
     while True:

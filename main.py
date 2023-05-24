@@ -1,5 +1,6 @@
 import os
 from funciones import*
+flag_1=False
 menu=True
 while menu == True:
     os.system("cls")
@@ -7,17 +8,22 @@ while menu == True:
         case "1":
             datos_cargados=cargar_datos()
         case "2":
-            insumos=cantidad_marca(datos_cargados,"MARCA")
-            print(insumos)
+            if(flag_1==True):
+                insumos=cantidad_marca(datos_cargados,"MARCA")
+                print(insumos)
         case "3":
-            mensaje=insumos_por_marca(datos_cargados,"MARCA")
-            print(mensaje)
+            if(flag_1==True):
+                mensaje=insumos_por_marca(datos_cargados,"MARCA","NOMBRE","PRECIO")
+                print(mensaje)
         case "4":
-            busqueda_caracteristica(datos_cargados)
+            if(flag_1==True):
+                busqueda_caracteristica(datos_cargados,"CARACTERISTICAS","MARCA")
         case "5":
-            orden_insumos(datos_cargados)
+            if(flag_1==True):
+                orden_insumos(datos_cargados,"MARCA","NOMBRE","ID","PRECIO")
         case "6":
-            realizar_compras(datos_cargados)
+            if(flag_1==True):
+                realizar_compras(datos_cargados)
         case "10":
             menu=salir_funcion()
     os.system("pause")  
