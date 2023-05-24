@@ -7,6 +7,7 @@ while menu == True:
     match(mostar_menu()):
         case "1":
             datos_cargados=cargar_datos()
+            flag_1=True
         case "2":
             if(flag_1==True):
                 insumos=cantidad_marca(datos_cargados,"MARCA")

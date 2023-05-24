@@ -19,9 +19,6 @@ def mostar_menu():
 
      
 
-
-
-
 def cargar_datos():
     with open(r"insumos.csv",encoding="utf-8")as file: 
         archivo_lector=file.read()
@@ -95,7 +92,6 @@ def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->list:
 
 
 #Buscar insumo por característica:
-
 def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)->None:
     lista=list()
     busqueda=input(" Buscar caracteristica  ")
@@ -123,10 +119,13 @@ def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
         print(f"{elemento[key_i]:2s}  {elemento[key_n]:35s}  {elemento[key_p]:10.0f} {elemento[key_m]:2s}")
 
 def realizar_compras(lista:list):
+    datos="///"
     while True:
         resultado=0
-        marca_ingresada=input("Ingresar marca : ")
-        
+        marca_ingresada=input("Ingresar marca : , N para terminar :")
+        if(marca_ingresada.lower() == "n"):
+            break
+
         print("Productos de la marca")
         
         for producto in lista: 

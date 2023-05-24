@@ -1,0 +1,5 @@
+Producto :s
+ Marca :Pedigree
+ Precio :$12.99
+ Cantidad :12
+ Precio Total :$155.88
