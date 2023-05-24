@@ -36,7 +36,7 @@ while menu == True:
 
 # case 10
 # opcion=input("desea salir del programa ? s/n ")
-# while(opcion!="s" and opcion!="n"):
+# while(opcion!="s" and opcio!="n"):
 #     opcion=input("error , S/n")
 # if(opcion =="s"):
 #     print("Chao ♪♪♪ ")

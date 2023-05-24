@@ -1,4 +1,4 @@
-Producto :come
+Producto :comee
  Marca :Bergan
  Precio :$7.99
  Cantidad :12

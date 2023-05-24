@@ -11,7 +11,7 @@ def mostar_menu():
     7-Guardar en formato JSON
     8-Leer desde formato JSON
     9-Actualizar precios
-    10-Salir del programa
+    10-Salir del  programa
     """)
     opcion=input(" ")
     return opcion
