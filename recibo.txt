@@ -1,0 +1,13 @@
+
+PRODUCTO :Cepillo para perros | CANTIDAD :6 | PRECIO :$24.85 | SUBTOTAL :$12.52 | PRECIO FINAL :$149.1
+-------------------------------------------------------------------------
+TOTAL 149.1
+PRODUCTO :Alimento para perro | CANTIDAD :6 | PRECIO :$17.93 | SUBTOTAL :$9.04 | PRECIO FINAL :$107.58
+-------------------------------------------------------------------------
+TOTAL 107.58
+PRODUCTO :Alimento para perro | CANTIDAD :5 | PRECIO :$19.44 | SUBTOTAL :$8.16 | PRECIO FINAL :$97.2
+-------------------------------------------------------------------------
+TOTAL 97.2
+PRODUCTO :Alimento para gatos | CANTIDAD :2 | PRECIO :$14.96 | SUBTOTAL :$2.51 | PRECIO FINAL :$29.92
+-------------------------------------------------------------------------
+TOTAL 29.92

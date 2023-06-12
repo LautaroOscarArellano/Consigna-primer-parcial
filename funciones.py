@@ -18,14 +18,14 @@ def mostar_menu():
     """)
     opcion=input(" ")
     return opcion
-
+#1
 def cargar_datos()->list:
     """Funcion para cargar datos del archivo
 
     Returns:
         list: retorna una lista de diccionarios .
     """
-    with open(r"insumos.csv",encoding="utf-8")as file: 
+    with open("insumos.csv",encoding="utf-8")as file: 
         archivo_lector=file.read()
         archivo_lector=archivo_lector.split("\n")
         
@@ -36,9 +36,7 @@ def cargar_datos()->list:
             archivo_lector=re.split("," , elemento.replace("$",""))#Reemplazo de "$" por " " para poder parsear el precio
             if(archivo_lector[0] != "") :
                 lista_1.append(archivo_lector)#Soluciona el problema de un elemento vacio
-        
-        print(lista_1[0][2])
-
+                
         for elemento in range(len(lista_1)):
             direccio=dict()#Creacion de diccionario iterable
             direccio["ID"]=lista_1[elemento][0]
@@ -47,9 +45,8 @@ def cargar_datos()->list:
             direccio["PRECIO"]=float(lista_1[elemento][3])
             direccio["CARACTERISTICAS"]=lista_1[elemento][4]
             lista_dicc.append(direccio)
-        print("Datos cargados")
         return(lista_dicc) 
-        
+#2       
 def cantidad_marca(lista:list,key_m:str,key_c:str)->None:
     agrupacion_marca=list()
     lista_insumos=list()
@@ -81,7 +78,7 @@ def esta_en_lista (lista:list , marca:str)->list:
             esta=True
             break
     return esta
-        
+#3        
 def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->None:
     agrupacion_marca=list()
     lista_insumos=list()
@@ -101,7 +98,7 @@ def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->None:
     print("MARCA                        NOMBRE                       PRECIO")      
     for item in lista_insumos:
         print(f"{item[key_m]:24s}{item[key_n]:30s}{item[key_p]:9.2f}")
-
+#4
 def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)->None:
     lista=list()
     busqueda=input("Buscar caracteristica ->:").capitalize()#por que las caracteristicas empiezan con mayuscula
@@ -118,7 +115,7 @@ def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)-
         print("MARCA     CARACTERISTICAS")
         for item in lista:
             print(f"{item[key_m]:10s}{item[key_c]:10s}")
-
+#5
 def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
     print("ID    CARACTERISTICA                     PRECIO     MARCA")
     tam=len(lista)
@@ -131,7 +128,7 @@ def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
 
     for elemento in lista:
         print(f"{elemento[key_i]:2s}  {elemento[key_n]:35s}  {elemento[key_p]:4.2f}      {elemento[key_m]}")
-
+#6
 def realizar_compras(lista:list,key_m:str,key_p:str)->list:  
     lista_marcas=list()
     lista_productos=list()
@@ -204,7 +201,7 @@ def realizar_compras(lista:list,key_m:str,key_p:str)->list:
         archivo.close()
     return lista_productos
 
-
+#7
 def guardado_json(lista:list)->None:
     lista_productos=list()
     for item in lista:
@@ -219,7 +216,7 @@ def guardado_json(lista:list)->None:
         print("Lista vacia")
 
     
-
+#8
 def mostrar_json()->None:
     with open("Archivo.json","r")as data: 
         datos=json.load(data)#devuelve la lista de diccionarios
@@ -227,7 +224,7 @@ def mostrar_json()->None:
         print("Listado de insumos\nPRODUCTO              CANTIDAD    PRECIO   SUBTOTAL   PRECIO FINAL")
         for item in datos:
             print(f"{item['PRODUCTO']} {item['CANTIDAD']:9.2f} {item['PRECIO']:9.2f} {item['SUBTOTAL']:9.2f} {item['PRECIO FINAL']:9.2f}")
-
+#9
 def actualizacion_precios(lista:list)->None:
     lista_copiada=list()
     lista_copiada=lista.copy()
@@ -243,7 +240,7 @@ def actualizacion_precios(lista:list)->None:
             file.write(dato)
 
     print("Datos actualizados")
-
+#10
 def agregar_productos():
     with open("marcas.txt")as archivo:
         lista_marcas=list()
@@ -297,7 +294,7 @@ def agregar_productos():
             with open("agregado.json","w")as file: #supoiendo que no lo tenga que agregar en insumos
                 json.dump(lista_agregados,file,indent=4)
 
-                        
+#11                       
 def salir_funcion()->bool:
     opcion=input("desea salir del programa ? s/n ")
     while(opcion!="s" and opcion!="n"):
