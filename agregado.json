@@ -1,0 +1,26 @@
+[
+    {
+        "MARCA": "Sherpa",
+        "NOMBRE": "existing everywehre",
+        "PRECIO": 1000.0,
+        "CARACTERISTICAS": "es una cancion de una artista"
+    },
+    {
+        "MARCA": "Frolicat",
+        "NOMBRE": "mateo",
+        "PRECIO": 12.0,
+        "CARACTERISTICAS": "5"
+    },
+    {
+        "MARCA": "Purina",
+        "NOMBRE": "pepe",
+        "PRECIO": 12.0,
+        "CARACTERISTICAS": "medsa"
+    },
+    {
+        "MARCA": "Purina",
+        "NOMBRE": "lapiz",
+        "PRECIO": 55.0,
+        "CARACTERISTICAS": "repite?"
+    }
+]
