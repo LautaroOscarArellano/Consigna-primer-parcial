@@ -1,9 +1,9 @@
 [
     {
-        "PRODUCTO": "Alimento para gatos",
-        "CANTIDAD": 2,
-        "PRECIO": 14.96,
-        "SUBTOTAL": 2.51,
-        "PRECIO FINAL": 29.92
+        "PRODUCTO": "Alimento para perros",
+        "CANTIDAD": 5,
+        "PRECIO": 31.65,
+        "SUBTOTAL": 13.29,
+        "PRECIO FINAL": 158.25
     }
 ]

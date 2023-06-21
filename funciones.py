@@ -20,10 +20,11 @@ def mostar_menu():
     return opcion
 #1
 def cargar_datos()->list:
-    """Funcion para cargar datos del archivo
+    """Funcion que permite cargar un archivo csv a python para su uso
+    retorna una lista.
 
     Returns:
-        list: retorna una lista de diccionarios .
+        list: archivo csv pasado a lista de python.
     """
     with open("insumos.csv",encoding="utf-8")as file: 
         archivo_lector=file.read()
@@ -48,6 +49,15 @@ def cargar_datos()->list:
         return(lista_dicc) 
 #2       
 def cantidad_marca(lista:list,key_m:str,key_c:str)->None:
+    """Funcion que recibe por parametro la lista copiada de la anterior funcion
+    y 2 llaves por parametro , muestra todas las marcas y la cantidad de
+    insumos.
+
+    Args:
+        lista (list): lista anterior funcion
+        key_m (marca): marca
+        key_c (cantidad): su cantidad
+    """
     agrupacion_marca=list()
     lista_insumos=list()
     valor=0
@@ -72,6 +82,15 @@ def cantidad_marca(lista:list,key_m:str,key_c:str)->None:
        print(f"{elemento[key_m]:24s}{elemento[key_c]:5d}")   
 
 def esta_en_lista (lista:list , marca:str)->list:
+    """Funcion filtradora , filtra para que no se repitan marcas.
+
+    Args:
+        lista (list): lista
+        marca (str): marca
+
+    Returns:
+        list: lista filtrada
+    """
     esta=False
     for elemento in lista:
         if(elemento == marca):
@@ -80,6 +99,14 @@ def esta_en_lista (lista:list , marca:str)->list:
     return esta
 #3        
 def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->None:
+    """Funcion que muestra cada marca , nombre y precio de los insumos.
+
+    Args:
+        lista (list): lista
+        key_m (str): marca
+        key_n (str): nombre
+        key_p (str): precio
+    """
     agrupacion_marca=list()
     lista_insumos=list()
     for marca in lista:
@@ -90,7 +117,7 @@ def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->None:
         for nombre_insumo in lista: 
             diccionario_marcas_2=dict()#aca se pode el dic para que se vuelva a crear con cada iteracion
             if(marca == nombre_insumo[key_m]):#compara marca == marca 
-                print(nombre_insumo[key_n])
+                #print(nombre_insumo[key_n])
                 diccionario_marcas_2[key_m]=nombre_insumo[key_m]
                 diccionario_marcas_2[key_n]=nombre_insumo[key_n]
                 diccionario_marcas_2[key_p]=nombre_insumo[key_p]
@@ -100,6 +127,14 @@ def insumos_por_marca(lista:list , key_m:str,key_n:str,key_p:str)->None:
         print(f"{item[key_m]:24s}{item[key_n]:30s}{item[key_p]:9.2f}")
 #4
 def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)->None:
+    """Funcion que busca por caracteristica  y lista todos los que tengan
+    algo que ver.
+
+    Args:
+        recorrer_caracteristica (list): lista
+        key_c (str): caracteristica
+        key_m (str): marca
+    """
     lista=list()
     busqueda=input("Buscar caracteristica ->:").capitalize()#por que las caracteristicas empiezan con mayuscula
     for caracteristica in recorrer_caracteristica:
@@ -117,6 +152,15 @@ def busqueda_caracteristica(recorrer_caracteristica:list(),key_c:str,key_m:str)-
             print(f"{item[key_m]:10s}{item[key_c]:10s}")
 #5
 def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
+    """Funcion que muestra los insumos ordenados.
+
+    Args:
+        lista (list): lista
+        key_m (str): marca
+        key_n (str): nombre
+        key_i (str): id
+        key_p (str): precio
+    """
     print("ID    CARACTERISTICA                     PRECIO     MARCA")
     tam=len(lista)
     for i in range(tam-1):
@@ -130,12 +174,23 @@ def orden_insumos(lista:list,key_m:str,key_n:str,key_i:str,key_p:str)->None:
         print(f"{elemento[key_i]:2s}  {elemento[key_n]:35s}  {elemento[key_p]:4.2f}      {elemento[key_m]}")
 #6
 def realizar_compras(lista:list,key_m:str,key_p:str)->list:  
+    """Funcion que permite al usuario realizar compras.El isuario ingresa
+    marca , producto y cantidad , esto se finaliza hasta que el usuario deje
+    de ingresar datos.
+
+    Args:
+        lista (list): lista
+        key_m (str): marca
+        key_p (str): _description_
+
+    Returns:
+        list: precio
+    """
     lista_marcas=list()
     lista_productos=list()
     salida= True
     precio_total=0
     sumatoria_precios=0
-    ##probar aca afuera el mensaje de menu
     while True:
         busqueda=True
 
@@ -203,6 +258,12 @@ def realizar_compras(lista:list,key_m:str,key_p:str)->list:
 
 #7
 def guardado_json(lista:list)->None:
+    """Genera un archivo json con todos los productos cuyo nombre contiene
+    la palabra alimento.
+
+    Args:
+        lista (list): lista
+    """
     lista_productos=list()
     for item in lista:
         if "Alimento" in item["PRODUCTO"]:
@@ -214,10 +275,12 @@ def guardado_json(lista:list)->None:
             json.dump(lista_productos ,data,indent=4) 
     else:
         print("Lista vacia")
-
     
 #8
 def mostrar_json()->None:
+    """Funcion que permite mostrar un listado de los insumos guardados en
+    el archivo json.
+    """
     with open("Archivo.json","r")as data: 
         datos=json.load(data)#devuelve la lista de diccionarios
         #print(datos) verificar que este ok
@@ -226,6 +289,12 @@ def mostrar_json()->None:
             print(f"{item['PRODUCTO']} {item['CANTIDAD']:9.2f} {item['PRECIO']:9.2f} {item['SUBTOTAL']:9.2f} {item['PRECIO FINAL']:9.2f}")
 #9
 def actualizacion_precios(lista:list)->None:
+    """Funcion que aplica un aumento del 8,4% a todos los productos del archivo
+    json csv.
+
+    Args:
+        lista (list): lista
+    """
     lista_copiada=list()
     lista_copiada=lista.copy()
     i=0
@@ -242,6 +311,8 @@ def actualizacion_precios(lista:list)->None:
     print("Datos actualizados")
 #10
 def agregar_productos():
+    """Funcion que agrega productos a un archivo nuevo
+    """
     with open("marcas.txt")as archivo:
         lista_marcas=list()
         lista_agregados=list()
@@ -280,6 +351,7 @@ def agregar_productos():
                     lista_agregados.append(diccionario_agregados)
 
         formato=input("Guardar los datos en formato CSV o JSON ?").upper()
+    #En esta parte agrega la opcion de guardar en json a csv
         while (formato!="CSV" and formato !="JSON"):
             formato=input("ERROR ,elegir CSV o JSON :>").upper()
 
@@ -304,4 +376,8 @@ def salir_funcion()->bool:
         return False
     else :
         return True
-    
+
+
+
+
+#Aclaraciones : no se por que el docstring me aparece en verde.
