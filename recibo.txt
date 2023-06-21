@@ -14,3 +14,26 @@ TOTAL 29.92
 PRODUCTO :Alimento para perros | CANTIDAD :5 | PRECIO :$31.65 | SUBTOTAL :$13.29 | PRECIO FINAL :$158.25
 -------------------------------------------------------------------------
 TOTAL 158.25
+-------------------------------------------------------------------------
+TOTAL 0
+PRODUCTO :Alimento para perro | CANTIDAD :5 | PRECIO :$24.76 | SUBTOTAL :$10.4 | PRECIO FINAL :$123.8
+-------------------------------------------------------------------------
+TOTAL 123.8
+PRODUCTO :Alimento para perros | CANTIDAD :2 | PRECIO :$37.19 | SUBTOTAL :$6.25 | PRECIO FINAL :$74.38
+-------------------------------------------------------------------------
+TOTAL 74.38
+STOCK3| PRODUCTO :Alimento para perro | CANTIDAD :3 | PRECIO :$24.76 | SUBTOTAL :$6.24 | PRECIO FINAL :$74.28
+-------------------------------------------------------------------------
+TOTAL 74.28
+STOCK1| PRODUCTO :Alimento para perros | CANTIDAD :5 | PRECIO :$37.19 | SUBTOTAL :$15.62 | PRECIO FINAL :$185.95
+-------------------------------------------------------------------------
+TOTAL 185.95
+STOCK :5| PRODUCTO :Alimento para perro | CANTIDAD :5 | PRECIO :$26.84 | SUBTOTAL :$11.27 | PRECIO FINAL :$134.2
+-------------------------------------------------------------------------
+TOTAL 134.2
+STOCK :4| PRODUCTO :Alimento para perros | CANTIDAD :3 | PRECIO :$29.96 | SUBTOTAL :$7.55 | PRECIO FINAL :$89.88
+-------------------------------------------------------------------------
+TOTAL 89.88
+STOCK :2| PRODUCTO :Alimento para perro | CANTIDAD :5 | PRECIO :$29.09 | SUBTOTAL :$12.22 | PRECIO FINAL :$145.45
+-------------------------------------------------------------------------
+TOTAL 145.45

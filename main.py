@@ -22,12 +22,12 @@ while menu == True:
                 print("Cargar datos primero")
         case "4":
             if(flag_1==True):
-                busqueda_caracteristica(datos_cargados,"CARACTERISTICAS","MARCA")
+                busqueda_caracteristica(datos_cargados,"CARACTERISTICAS","MARCA","STOCK")
             else:
                 print("Cargar datos primero")      
         case "5":
             if(flag_1==True):
-                orden_insumos(datos_cargados,"MARCA","NOMBRE","ID","PRECIO")
+                orden_insumos(datos_cargados,"MARCA","NOMBRE","ID","PRECIO","STOCK")
             else:
                 print("Cargar datos primero")  
         case "6":
@@ -53,8 +53,15 @@ while menu == True:
             else:
                 print("Cargar datos primero")     
         case "10":
-            agregar_productos()     
+            agregar_productos()    
         case "11":
+            if(flag_1==True):
+                stock_por_marca(datos_cargados,"MARCA")
+            else:
+                print("Cargar datos primero")
+        case "12":
+            imprimir_bajo_stock(datos_cargados)
+        case "13":
             menu=salir_funcion()
     os.system("pause")  
 

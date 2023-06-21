@@ -1,9 +1,10 @@
 [
     {
-        "PRODUCTO": "Alimento para perros",
+        "PRODUCTO": "Alimento para perro",
         "CANTIDAD": 5,
-        "PRECIO": 31.65,
-        "SUBTOTAL": 13.29,
-        "PRECIO FINAL": 158.25
+        "PRECIO": 29.09,
+        "SUBTOTAL": 12.22,
+        "PRECIO FINAL": 145.45,
+        "STOCK": 2
     }
 ]
